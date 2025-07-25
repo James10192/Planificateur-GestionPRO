@@ -1,0 +1,138 @@
+# Configuration Oracle pour environnement de production
+spring:
+  application:
+    name: project-management-oracle-prod
+  
+  # Configuration DataSource Oracle pour production
+  datasource:
+    # Configuration JNDI pour Payara Server
+    jndi-name: ${JNDI_DATASOURCE:jdbc/NsiaProjectDS}
+    
+    # Configuration de fallback si JNDI non disponible
+    url: ${ORACLE_DB_URL:jdbc:oracle:thin:@//prod-oracle-server:1521/PROD}
+    username: ${ORACLE_DB_USERNAME:project_prod_user}
+    password: ${ORACLE_DB_PASSWORD}
+    driver-class-name: oracle.jdbc.OracleDriver
+    
+    # Configuration HikariCP optimisée pour production
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 30
+      minimum-idle: 10
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      pool-name: ProjectOracleProdPool
+      validation-timeout: 5000
+      leak-detection-threshold: 60000
+      connection-test-query: SELECT 1 FROM DUAL
+  
+  # Configuration JPA/Hibernate pour production
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle12cDialect
+        show_sql: false
+        format_sql: false
+        use_sql_comments: false
+        jdbc:
+          lob:
+            non_contextual_creation: true
+          batch_size: 50
+        order_inserts: true
+        order_updates: true
+        batch_versioned_data: true
+        connection:
+          provider_disables_autocommit: true
+        cache:
+          use_second_level_cache: true
+          use_query_cache: true
+          region:
+            factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
+    open-in-view: false
+
+# Configuration serveur pour production
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /nsia
+  compression:
+    enabled: true
+    min-response-size: 1024
+  tomcat:
+    max-threads: ${TOMCAT_MAX_THREADS:200}
+    min-spare-threads: ${TOMCAT_MIN_THREADS:10}
+    max-connections: ${TOMCAT_MAX_CONNECTIONS:8192}
+
+# Configuration logging pour production
+logging:
+  level:
+    com.projectmanagement: ${LOG_LEVEL_APP:INFO}
+    org.springframework: WARN
+    org.hibernate: WARN
+    org.springframework.web: WARN
+    org.springframework.security: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level [%X{traceId}] %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level [%X{traceId}] %logger{36} - %msg%n"
+  file:
+    name: ${LOG_FILE:/opt/nsia/logs/project-management.log}
+    max-file-size: ${LOG_MAX_FILE_SIZE:100MB}
+    max-history: ${LOG_MAX_HISTORY:30}
+
+# Configuration management endpoints pour production
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: never
+  security:
+    enabled: true
+
+# Configuration spécifique à la production
+app:
+  environment: oracle-prod
+  features:
+    audit-enabled: true
+    export-enabled: true
+    kpi-calculation-enabled: true
+  security:
+    jwt:
+      secret: ${JWT_SECRET}
+      expiration: ${JWT_EXPIRATION:3600000}
+    cors:
+      allowed-origins: ${CORS_ALLOWED_ORIGINS:https://nsia-projects.company.com}
+      allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+      allowed-headers: "*"
+      allow-credentials: true
+  export:
+    max-records: ${EXPORT_MAX_RECORDS:50000}
+    timeout-seconds: ${EXPORT_TIMEOUT:600}
+
+# Configuration pour intégration d'entreprise
+enterprise:
+  monitoring:
+    enabled: ${MONITORING_ENABLED:true}
+    endpoint: ${MONITORING_ENDPOINT}
+  backup:
+    enabled: ${BACKUP_ENABLED:true}
+    schedule: ${BACKUP_SCHEDULE:0 2 * * *}
+  security:
+    ldap:
+      enabled: ${LDAP_ENABLED:false}
+      url: ${LDAP_URL}
+      base-dn: ${LDAP_BASE_DN}
+  notification:
+    email:
+      enabled: ${EMAIL_ENABLED:true}
+      smtp-host: ${SMTP_HOST}
+      smtp-port: ${SMTP_PORT:587}

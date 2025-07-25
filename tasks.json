@@ -1,0 +1,205 @@
+{
+  "version": "1.0.0",
+  "tasks": {
+    "done": [
+      {
+        "id": 1,
+        "description": "Set up basic project structure for Spring Boot application",
+        "completedOn": "2023-05-09"
+      },
+      {
+        "id": 2,
+        "description": "Create entities for all database tables",
+        "completedOn": "2023-05-09"
+      },
+      {
+        "id": 3,
+        "description": "Create repositories for all entities",
+        "completedOn": "2023-05-09"
+      },
+      {
+        "id": 4,
+        "description": "Create DTOs for all entities",
+        "completedOn": "2023-05-09"
+      },
+      {
+        "id": 5,
+        "description": "Create base service interface and implementation",
+        "completedOn": "2024-08-01"
+      },
+      {
+        "id": 6,
+        "description": "Create Project service implementation",
+        "completedOn": "2024-08-01"
+      },
+      {
+        "id": 7,
+        "description": "Create Action service implementation",
+        "completedOn": "2024-08-01"
+      },
+      {
+        "id": 8,
+        "description": "Create Planning service implementation",
+        "completedOn": "2024-08-01"
+      },
+      {
+        "id": 9,
+        "description": "Create User service implementation",
+        "completedOn": "2024-08-03"
+      },
+      {
+        "id": 10,
+        "description": "Complete all remaining service implementations",
+        "completedOn": "2024-08-05"
+      },
+      {
+        "id": 12,
+        "description": "Create base controller interface and implementation",
+        "completedOn": "2024-08-08"
+      },
+      {
+        "id": 13,
+        "description": "Create specific controller implementations for all entities",
+        "completedOn": "2024-08-08"
+      },
+      {
+        "id": 14,
+        "description": "Fix linter errors in controller implementations",
+        "completedOn": "2024-08-08"
+      },
+      {
+        "id": 16,
+        "description": "Implement frontend dashboard page",
+        "completedOn": "2024-05-09"
+      },
+      {
+        "id": 24,
+        "description": "Fix KPI service implementation issues and align with architecture patterns",
+        "completedOn": "2024-08-09"
+      },
+      {
+        "id": 17,
+        "description": "Create project listing page",
+        "completedOn": "2024-08-14"
+      },
+      {
+        "id": 19,
+        "description": "Create project creation page",
+        "completedOn": "2024-08-14"
+      },
+      {
+        "id": 18,
+        "description": "Create project detail page",
+        "completedOn": "2024-08-16"
+      },
+      {
+        "id": 20,
+        "description": "Create project editing page",
+        "completedOn": "2024-08-16"
+      },
+      {
+        "id": 25,
+        "description": "Implement KPI tracking and visualization frontend components",
+        "completedOn": "2024-05-09"
+      },
+      {
+        "id": 26,
+        "description": "Add ProjectKpis component with KPI metrics visualization",
+        "completedOn": "2024-05-09"
+      },
+      {
+        "id": 27,
+        "description": "Create KPI detail view with historical data chart",
+        "completedOn": "2024-05-09"
+      },
+      {
+        "id": 28,
+        "description": "Fix linter errors in KpiServiceImpl.java",
+        "completedOn": "2024-05-09"
+      },
+      {
+        "id": 29,
+        "description": "Implement KPI data export functionality",
+        "completedOn": "2024-05-09"
+      },
+      {
+        "id": 30,
+        "description": "Improve frontend-backend integration for KPIs in production mode",
+        "completedOn": "2024-08-20"
+      },
+      {
+        "id": 35,
+        "description": "Configure packaging for Payara Server deployment",
+        "completedOn": "2024-08-20"
+      },
+      {
+        "id": 36,
+        "description": "Create automated deployment script for Payara Server",
+        "completedOn": "2024-08-20"
+      },
+      {
+        "id": 37,
+        "description": "Document deployment procedures for local and enterprise environments",
+        "completedOn": "2024-08-20"
+      },
+      {
+        "id": 38,
+        "description": "Implement seamless integration between frontend and backend for deployment",
+        "completedOn": "2024-08-20"
+      },
+      {
+        "id": 41,
+        "description": "Migrate all javax.persistence usage to jakarta.persistence for EntityManagerFactory and CDI annotations in config classes (Jakarta EE 9+ compatibility)",
+        "completedOn": "2025-05-12"
+      },
+      {
+        "id": 42,
+        "description": "Fix JDBC resource naming issues for Payara deployment",
+        "completedOn": "2025-05-13"
+      },
+      {
+        "id": 43,
+        "description": "Update deployment script to support GUI-based deployment workflow",
+        "completedOn": "2025-05-13"
+      }
+    ],
+    "in-progress": [
+      {
+        "id": 11,
+        "description": "Implement MapStruct mappers for entity-DTO conversion",
+        "startedOn": "2024-08-08"
+      },
+      {
+        "id": 21,
+        "description": "Create parameters management pages",
+        "startedOn": "2024-08-16"
+      }
+    ],
+    "pending": [
+      {
+        "id": 15,
+        "description": "Implement JWT-based authentication and security configuration"
+      },
+      {
+        "id": 22,
+        "description": "Create planning management pages"
+      },
+      {
+        "id": 23,
+        "description": "Create action management pages"
+      },
+      {
+        "id": 34,
+        "description": "Implement comprehensive Risk Management module (planned for future release)"
+      },
+      {
+        "id": 39,
+        "description": "Optimize application performance for production environment"
+      },
+      {
+        "id": 40,
+        "description": "Implement monitoring and health checks for production deployment"
+      }
+    ]
+  }
+}

@@ -1,0 +1,125 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Cette règle c'est pour la struture à respecter du backend et du front-end
+
+// Structure des répertoires du backend
+project-management-system/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── projectmanagement/
+│   │   │           ├── config/
+│   │   │           │   ├── SecurityConfig.java
+│   │   │           │   └── WebConfig.java
+│   │   │           ├── controller/
+│   │   │           │   ├── ProjectController.java
+│   │   │           │   ├── UserController.java
+│   │   │           │   ├── TeamController.java
+│   │   │           │   ├── PlanningController.java
+│   │   │           │   ├── ActionController.java
+│   │   │           │   └── ParameterController.java
+│   │   │           ├── dto/
+│   │   │           │   ├── ProjectDTO.java
+│   │   │           │   ├── UserDTO.java
+│   │   │           │   └── ...
+│   │   │           ├── entity/
+│   │   │           │   ├── Project.java
+│   │   │           │   ├── User.java
+│   │   │           │   ├── ProjectType.java
+│   │   │           │   ├── Status.java
+│   │   │           │   ├── Priority.java
+│   │   │           │   ├── Direction.java
+│   │   │           │   ├── PortfolioPhase.java
+│   │   │           │   ├── TeamRole.java
+│   │   │           │   ├── ProjectTeam.java
+│   │   │           │   ├── TeamMember.java
+│   │   │           │   ├── Planning.java
+│   │   │           │   ├── Action.java
+│   │   │           │   ├── SubAction.java
+│   │   │           │   ├── ActionDependency.java
+│   │   │           │   ├── Document.java
+│   │   │           │   ├── ProjectBudget.java
+│   │   │           │   └── AuditLog.java
+│   │   │           ├── repository/
+│   │   │           │   ├── ProjectRepository.java
+│   │   │           │   ├── UserRepository.java
+│   │   │           │   └── ...
+│   │   │           ├── service/
+│   │   │           │   ├── ProjectService.java
+│   │   │           │   ├── UserService.java
+│   │   │           │   └── ...
+│   │   │           └── ProjectManagementApplication.java
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       └── data.sql
+│   └── test/
+
+└── pom.xml
+
+project-management-frontend/
+├── src/
+│   ├── app/
+│   │   ├── dashboard/
+│   │   │   └── page.tsx
+│   │   ├── projects/
+│   │   │   ├── page.tsx
+│   │   │   ├── create/
+│   │   │   │   └── page.tsx
+│   │   │   └── [id]/
+│   │   │       ├── page.tsx
+│   │   │       ├── edit/
+│   │   │       │   └── page.tsx
+│   │   │       └── delete/
+│   │   │           └── page.tsx
+│   │   ├── parameters/
+│   │   │   └── page.tsx
+│   │   ├── plannings/
+│   │   │   └── page.tsx
+│   │   ├── actions/
+│   │   │   └── page.tsx
+│   │   └── layout.tsx
+│   ├── components/
+│   │   ├── ui/
+│   │   │   ├── Button.tsx
+│   │   │   ├── Card.tsx
+│   │   │   ├── Input.tsx
+│   │   │   ├── Modal.tsx
+│   │   │   ├── Select.tsx
+│   │   │   ├── Table.tsx
+│   │   │   └── Badge.tsx
+│   │   ├── layout/
+│   │   │   ├── Sidebar.tsx
+│   │   │   ├── Header.tsx
+│   │   │   └── Footer.tsx
+│   │   ├── dashboard/
+│   │   │   ├── ProjectSummary.tsx
+│   │   │   ├── RecentActivities.tsx
+│   │   │   └── StatCards.tsx
+│   │   ├── projects/
+│   │   │   ├── ProjectForm.tsx
+│   │   │   ├── ProjectList.tsx
+│   │   │   └── ProjectCard.tsx
+│   │   └── plannings/
+│   │       ├── PlanningForm.tsx
+│   │       └── PlanningTimeline.tsx
+│   ├── lib/
+│   │   ├── api.ts
+│   │   └── utils.ts
+│   ├── types/
+│   │   ├── project.ts
+│   │   ├── user.ts
+│   │   └── ...
+│   └── styles/
+│       └── globals.css
+├── public/
+│   └── images/
+├── .env
+├── next.config.js
+├── package.json
+├── tailwind.config.js
+
+└── tsconfig.json
