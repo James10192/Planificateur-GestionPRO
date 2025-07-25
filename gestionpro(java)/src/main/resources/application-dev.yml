@@ -1,0 +1,45 @@
+# Development Environment Configuration
+
+# Oracle Database Configuration
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:SBA1
+    username: project_user
+    password: secret
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  # JPA/Hibernate Properties
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle12cDialect
+        format_sql: true
+    show-sql: true
+
+  # Connection Pool Properties
+  datasource.hikari:
+    connection-timeout: 20000
+    maximum-pool-size: 10
+    minimum-idle: 5
+    idle-timeout: 300000
+    max-lifetime: 1200000
+
+  # Allow bean definition overriding
+  main:
+    allow-bean-definition-overriding: true
+
+# Logging Configuration
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    com.projectmanagement: DEBUG
+
+# Swagger / OpenAPI
+springdoc:
+  swagger-ui:
+    path: /docs/swagger-ui.html
+  api-docs:
+    path: /docs/api-docs
