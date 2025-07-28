@@ -1,85 +1,112 @@
 # 🚀 Planificateur-GestionPRO
 
 ## 📋 À Propos
-Système complet de gestion de projets développé avec **Java 11 + Spring Boot** et **Next.js**, optimisé pour Oracle Database et déploiement sur serveurs RHEL.
+Système complet de gestion de projets développé avec **Java 11 + Spring Boot** et **Next.js**, optimisé pour MySQL (local) et Oracle Database (production) avec déploiement sur serveurs RHEL.
 
-## ⚡ Démarrage Rapide
+## ⚡ Démarrage Ultra-Rapide
 
-### 💻 Test Local Windows (XAMPP)
+### 💻 Windows + XAMPP (Recommandé)
 ```powershell
-# 1. Configuration XAMPP (une seule fois)
-.\scripts\windows\setup_xampp.ps1
+# Configuration initiale (une seule fois)
+.\start-app.ps1 -Action setup
 
-# 2. Lancer l'application complète
-.\scripts\windows\start_xampp_app.ps1
+# Démarrage de l'application
+.\start-app.ps1
 
 # Accès: http://localhost:3000
 ```
 
+### 🧪 Mode Développement
+```powershell
+# Développement avec données de test (sans base de données)
+.\start-app.ps1 -DevMode
+
+# XAMPP seulement
+.\start-app.ps1 -XamppOnly
+```
+
 ### 🐧 Déploiement Serveur RHEL
 ```bash
-# 1. Configuration serveur (une seule fois)
+# Configuration serveur
 sudo ./scripts/linux/setup_rhel_server.sh
 
-# 2. Déploiement
+# Déploiement
 ./scripts/linux/deploy_test_server.sh --oracle-password VOTRE_PASSWORD
-
-# Accès: http://serveur:8080/nsia
 ```
 
-## 📁 Structure du Projet
+## 📁 Structure Optimisée
 
 ```
-📁 gestionpro(java)/
+📁 Planificateur-GestionPRO/
+├── 🚀 start-app.ps1              # Script principal (Windows)
 ├── 📁 scripts/
-│   ├── 📁 windows/           # Scripts pour test local Windows
-│   └── 📁 linux/             # Scripts pour serveurs RHEL
-├── 📁 docs/                  # Documentation complète
-├── 📁 src/                   # Code source Java Spring Boot
-├── 📁 project-management-frontend/  # Code source Next.js
-└── 📄 pom.xml               # Configuration Maven
+│   ├── 📁 windows/               # Scripts XAMPP optimisés
+│   ├── 📁 linux/                 # Scripts RHEL/Oracle
+│   └── 📁 sql/                   # Scripts base de données
+├── 📁 docs/                      # Documentation complète  
+├── 📁 src/                       # Backend Java Spring Boot
+├── 📁 project-management-frontend/  # Frontend Next.js
+└── 📄 pom.xml                   # Configuration Maven
 ```
 
 ## ✨ Fonctionnalités
 
-- 📊 **Tableau de bord** avec KPIs temps réel
+- 📊 **Tableaux de bord** avec KPIs temps réel
 - 📋 **Gestion de projets** complète (CRUD)
 - 👥 **Gestion d'équipes** et rôles
-- 📈 **Planification** multi-phases
-- 📁 **Documents** avec versioning
-- 💰 **Suivi budgétaire** 
-- 📊 **Export** Excel/PDF/CSV
-- 🔒 **Sécurité** JWT + audit trail
+- 📈 **Planification** avancée avec dépendances
+- 📁 **Gestion documentaire** avec versioning
+- 💰 **Suivi budgétaire** temps réel
+- 📊 **Exports** multi-formats (PDF/Excel/CSV)
+- 🔒 **Sécurité** JWT + audit trail complet
 
-## 🔧 Technologies
+## 🔧 Stack Technique
 
-- **Backend**: Java 11, Spring Boot 3.2.5, MySQL/Oracle Database
+- **Backend**: Java 11, Spring Boot 3.2.5, JPA/Hibernate
 - **Frontend**: Next.js 14, React 18, TypeScript, Tailwind CSS
-- **Serveur**: XAMPP (local), Payara Server 6.x (production)
-- **OS**: Windows + XAMPP (dev), RHEL/CentOS (production)
+- **Base de données**: MySQL 8.0 (local), Oracle 12c+ (production)
+- **Serveur**: XAMPP (dev), Payara Server 6.x (prod)
+- **Déploiement**: Windows + XAMPP, RHEL/CentOS + Oracle
 
 ## 📖 Documentation
 
-- 📋 **[Guide d'utilisation](docs/GUIDE_UTILISATION.md)** - Instructions détaillées
-- 👔 **[Résumé direction](docs/RESUME_EXECUTIF_DIRECTION.md)** - Vue managériale
-- 📊 **[Rapport complet](docs/RAPPORT_AVANCEMENT_EXECUTIF.md)** - Détails techniques
-- 🛠️ **[Guide développeur](docs/CLAUDE.md)** - Architecture technique
+- 🚀 **[Guide de démarrage](docs/GUIDE_DEMARRAGE.md)** - Configuration et lancement
+- 🏗️ **[Architecture](docs/ARCHITECTURE.md)** - Structure technique détaillée
+- 💡 **Scripts intégrés avec aide** : `.\start-app.ps1 -Help`
 
 ## 🎯 Statut du Projet
 
-✅ **TERMINÉ** - Prêt pour déploiement  
-✅ **100% Fonctionnel** - Toutes fonctionnalités implémentées  
-✅ **Testé** - Scripts de déploiement validés  
-✅ **Documenté** - Guides complets fournis  
+✅ **100% TERMINÉ** - Prêt pour utilisation  
+✅ **Code optimisé** - Structure propre et maintenable  
+✅ **Scripts unifiés** - Démarrage en une commande  
+✅ **Documentation complète** - Guides détaillés  
 
-## 🏆 Prochaines Étapes
+## 🏆 Commandes Essentielles
 
-1. **Configuration XAMPP** : Utilisez `.\scripts\windows\setup_xampp.ps1`
-2. **Test local** : Utilisez `.\scripts\windows\start_xampp_app.ps1`
-3. **Configuration Oracle serveur** : Préparez la base de données
-4. **Déploiement serveur** : Suivez le guide dans `/docs/`
-5. **Formation utilisateurs** : Documentation fournie
+```powershell
+# Configuration initiale
+.\start-app.ps1 -Action setup
+
+# Démarrage normal  
+.\start-app.ps1
+
+# Développement avec mocks
+.\start-app.ps1 -DevMode
+
+# Arrêt des services
+.\start-app.ps1 -Action stop
+
+# Aide détaillée
+.\start-app.ps1 -Help
+```
+
+## 📞 Accès Application
+
+- **Interface utilisateur** : http://localhost:3000
+- **API Backend** : http://localhost:8080/nsia  
+- **phpMyAdmin** : http://localhost/phpmyadmin
+- **Connexion test** : admin@nsia.ci / admin
 
 ---
 
-**📞 Support** : Consultez `/docs/GUIDE_UTILISATION.md` pour assistance
+**💡 Tip** : Consultez `docs/GUIDE_DEMARRAGE.md` pour une configuration détaillée
